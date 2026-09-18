@@ -10,6 +10,7 @@
 
   <project path="contest2026_381_kuzi" name="contest2026_381_kuzi">
     <linkfile src="app/hello_app" dest="packages/demos/contest2026_381_hello_app"/>
+    <linkfile src="app/ai_butler" dest="packages/demos/contest2026_381_ai_butler"/>
     <linkfile src="quickapp/hello_quickapp" dest="packages/apps/contest2026_381_hello_quickapp"/>
     <linkfile src="board/contest_board" dest="vendor/openvela/boards/contest2026_381_board"/>
   </project>

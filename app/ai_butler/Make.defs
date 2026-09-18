@@ -1,0 +1,7 @@
+#############################################################################
+# packages/demos/contest2026_381_ai_butler/Make.defs
+#############################################################################
+
+ifneq ($(CONFIG_AI_BUTLER),)
+CONFIGURED_APPS += $(APPDIR)/packages/demos/contest2026_381_ai_butler
+endif

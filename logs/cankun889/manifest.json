@@ -1,19 +1,31 @@
 {
-  "schema_version": "1.0",
-  "team_id": "contest2026_000_openvela",
-  "github_login": "your-github-login",
-  "generator": "example",
+  "version": "1.0",
+  "github_login": "cankun889",
+  "project": "AI管家",
+  "description": "基于openvela + ai_agent框架的智能环境管家系统",
   "sessions": [
     {
-      "session_id": "example-0000-0000-0000-000000000000",
+      "date": "2026-09-02",
       "tool": "claude-code",
-      "started_at": "2026-01-01T08:00:00.000Z",
-      "last_event_at": "2026-01-01T08:00:10.000Z",
-      "event_count": 4,
-      "file_path": "logs/your-github-login/2026-01-01/claude-code__example.jsonl",
-      "collection_mode": "cli",
-      "health": "ok"
+      "session_id": "277a50d4-b605-4d7b-8001-fbfd6bbf9112",
+      "file": "2026-09-02/claude-code__277a50d4-b605-4d7b-8001-fbfd6bbf9112.jsonl",
+      "description": "项目初始化和基础架构搭建"
+    },
+    {
+      "date": "2026-09-02",
+      "tool": "claude-code",
+      "session_id": "92e21262-5dd8-4baf-ae8b-25002ac332f4",
+      "file": "2026-09-02/claude-code__92e21262-5dd8-4baf-ae8b-25002ac332f4.jsonl",
+      "description": "环境监测模块开发"
+    },
+    {
+      "date": "2026-09-03",
+      "tool": "claude-code",
+      "session_id": "d1e8d20c-1843-493f-94c8-27166a4e0a0a",
+      "file": "2026-09-03/claude-code__d1e8d20c-1843-493f-94c8-27166a4e0a0a.jsonl",
+      "description": "定时管理、场景管理、云连接模块开发"
     }
   ],
-  "updated_at": "2026-01-01T08:00:11.000000+00:00"
+  "created_at": "2026-09-03T20:00:00Z",
+  "updated_at": "2026-09-03T20:00:00Z"
 }

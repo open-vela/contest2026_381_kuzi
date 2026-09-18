@@ -1,11 +1,79 @@
 #
-# Contest 2026 team 000 board placeholder
+# AI 管家项目 - GD32F470V-START 板级 Kconfig
+# 基于 openvela + ai_agent 框架
 #
 
-if ARCH_BOARD_CONTEST2026_000_BOARD
+if ARCH_BOARD_CUSTOM
 
-config ARCH_BOARD_CONTEST2026_000_BOARD_TAG
-	string "Board tag"
-	default "contest2026_000_board"
+choice
+	prompt "Select Console wiring."
+	default AI_BUTLER_CONSOLE_BOARD
+	---help---
+		Select where you will connect the console.
 
-endif
+		Eval COM Port (USART0 PA9/PA10):
+
+				GD32F470V-START
+			USART0 GPIO
+			-- ----- --------- -----
+			RX    USART0_RX PA10
+			TX    USART0_TX PA9
+			-- ----- --------- -----
+
+config AI_BUTLER_CONSOLE_BOARD
+	bool "Eval COM Connector (USART0 PA9/PA10)"
+	select GD32_USART0
+	select USART0_SERIALDRIVER
+
+config AI_BUTLER_CONSOLE_VIRTUAL
+	bool "Virtual COM Port (USART3)"
+	select GD32_USART3
+	select USART3_SERIALDRIVER
+
+config AI_BUTLER_CONSOLE_NONE
+	bool "No Serial Console"
+
+endchoice # "Select Console wiring"
+
+
+choice
+	prompt "GD32F470V MCU Crystal Selected"
+	default AI_BUTLER_USE_HXTAL
+
+config AI_BUTLER_USE_HXTAL
+	bool "Use Hxtal as clock source"
+
+config AI_BUTLER_USE_IRC16
+	bool "Use IRC16M as clock source"
+
+endchoice # MCU Crystal Selection
+
+config AI_BUTLER_HXTAL_VALUE
+	int "GD32F470V Start Board Hxtal Value"
+	default 25000000
+	depends on AI_BUTLER_USE_HXTAL
+	---help---
+		GD32F470V Start Board Hxtal Value, default is 25MHz.
+
+choice
+	prompt "GD32F470 MCU System Frequency"
+	default AI_BUTLER_200MHZ
+
+config AI_BUTLER_240MHZ
+	bool "240 MHz"
+
+config AI_BUTLER_200MHZ
+	bool "200 MHz"
+
+config AI_BUTLER_168MHZ
+	bool "168 MHz"
+
+endchoice # CPU Frequency
+
+config BOARD_LOOPSPERMSEC
+	int "Board loops-per-millisecond"
+	default 13500  if AI_BUTLER_168MHZ
+	default 16100  if AI_BUTLER_200MHZ
+	default 19300  if AI_BUTLER_240MHZ
+
+endif # ARCH_BOARD_CUSTOM

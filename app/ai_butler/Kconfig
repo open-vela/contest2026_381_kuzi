@@ -1,0 +1,32 @@
+#
+# AI Butler — Board Sentinel (板载守望)
+#
+
+config AI_BUTLER
+	bool "AI Butler / Board Sentinel"
+	default n
+	---help---
+		GD32F470V-START 板载守望 Agent：仅用板载 LED/按键/串口 CLI，
+		提供主动巡检 + LED 执行，不依赖外接传感器或 WiFi 模组。
+
+if AI_BUTLER
+
+config AI_BUTLER_PRIORITY
+	int "Task priority"
+	default 100
+
+config AI_BUTLER_STACKSIZE
+	int "Task stack size"
+	default 4096
+
+config AI_BUTLER_INSPECTION_INTERVAL
+	int "Proactive inspection interval (seconds)"
+	default 15
+	---help---
+		主动巡检周期。超时空闲会触发 LED 告警执行。
+
+config AI_BUTLER_IDLE_ALERT_SEC
+	int "Idle seconds before proactive LED alert"
+	default 20
+
+endif

@@ -18,3 +18,10 @@ out/
 *.elf
 *.hex
 *.map
+
+# NuttX app build artifacts
+.built
+.depend
+Make.dep
+*.o
+*.a
